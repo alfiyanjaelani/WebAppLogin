@@ -1,0 +1,25 @@
+﻿
+@model LoginViewModel
+
+<h2>Login</h2>
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Message"]
+    </div>
+}
+<!-- Menampilkan pesan error -->
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<form asp-action="Login" method="post">
+    <div>
+        <label for="Username">Username :</label>
+        <input asp-for="Username" />
+        <span asp-validation-for="Username" class="text-danger"></span>
+    </div>
+    <div>
+        <label for="Password">Password :</label>
+        <input asp-for="Password" type="password" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <button type="submit">Login</button>
+</form>
